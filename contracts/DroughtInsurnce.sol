@@ -1,8 +1,7 @@
+pragma solidity ^0.4.0;
 contract droughtInsurancePayout {
-
     mapping(bytes32 => uint) public counties;
-
-    function drougInsurancePayout () {
+    function drougtInsurancePayout () {
         counties ['BARINGO'] = 8;
         counties ['BOMET'] = 44;
         counties ['BUNGOMA'] = 41;
