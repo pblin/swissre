@@ -17,7 +17,7 @@ def hello():
 
 def getData(county):
     print(county)
-    wb = px.load_workbook('./dataset/EARS_sample_index_dataset.xlsx')
+    wb = px.load_workbook('./EARS_sample_index_dataset.xlsx')
     ws = wb['payout_monitoring_2016']
     data = ws.values
     cols = next(data)[1:]
