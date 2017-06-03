@@ -1,9 +1,12 @@
 FROM ubuntu:latest
-MAINTAINER Rajdeep Dua "dua_rajdeep@yahoo.com"
+MAINTAINER Bernard Lin  "bernardlin@outlook.com"
 RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential
-COPY . /app
+RUN apt-get install -y python-pip python-dev build-essential wget
+RUN pip install --upgrade pip
+RUN pip install flask openpyxl pandas more-itertools
 WORKDIR /app
-RUN pip install -r requirements.txt
+RUN cd /app; wget https://raw.githubusercontent.com/pblin/swissre/master/checkDrought/getpayoutdata.py
+RUN cd /app; wget https://github.com/pblin/swissre/raw/master/checkDrought/EARS_sample_index_dataset.xlsx
+EXPOSE 5000
 ENTRYPOINT ["python"]
-CMD ["app.py"]
+CMD ["getpayoutdata.py"]
